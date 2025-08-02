@@ -1,4 +1,4 @@
-# 🟨 CAINUX IDE
+# CAINUX IDE
 
 > **Sua Neovim distro personalizada** - Uma distribuição moderna e minimalista do Neovim para desenvolvimento profissional
 
