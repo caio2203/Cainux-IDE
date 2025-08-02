@@ -2,6 +2,7 @@ require("core.options")
 require("core.plugins")
 require("core.keymaps")
 require("core.colors")
+require("core.commands")
 
 -- Plugins carregados após Lazy iniciar
 vim.api.nvim_create_autocmd("User", {
@@ -15,3 +16,7 @@ vim.api.nvim_create_autocmd("User", {
     require("plugins.whichkey")
   end,
 })
+
+-- Temas --
+local colors = require("core.colors")
+colors.apply()

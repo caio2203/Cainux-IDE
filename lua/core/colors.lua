@@ -1,7 +1,13 @@
--- para temas que ja existem
--- vim.cmd.colorscheme("themes.neosong")  -- ou troque para "nord" ou "tokyonight"
+local M = {}
 
--- para temas criados
-vim.opt.termguicolors = true
-require("themes.neosong")
+-- Altere este nome para o tema que quiser: "monokai-pro", "nord", "tokyonight", etc.
+M.theme = "monokai-pro"
 
+function M.apply()
+  local ok, _ = pcall(vim.cmd.colorscheme, M.theme)
+  if not ok then
+    vim.notify("Tema não encontrado: " .. M.theme, vim.log.levels.ERROR)
+  end
+end
+
+return M

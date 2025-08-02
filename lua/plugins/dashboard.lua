@@ -1,0 +1,30 @@
+return {
+  theme = "doom",
+  config = {
+    header = {
+      [[ ██████╗ █████╗ ██╗███╗   ██╗██╗   ██╗██╗  ██╗ ]],
+      [[██╔════╝██╔══██╗██║████╗  ██║██║   ██║╚██╗██╔╝]],
+      [[██║     ███████║██║██╔██╗ ██║██║   ██║ ╚███╔╝ ]],
+      [[██║     ██╔══██║██║██║╚██╗██║██║   ██║ ██╔██╗ ]],
+      [[╚██████╗██║  ██║██║██║ ╚████║╚██████╔╝██╔╝ ██╗]],
+      [[ ╚═════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝]],
+      [[]],
+      [[          🐧 Bem-vindo ao Cainux ©️           ]],
+    },
+    center = {
+      { icon = "  ", desc = " Novo arquivo",      action = "enew", key = "n" },
+      { icon = "  ", desc = " Procurar arquivos", action = "Telescope find_files", key = "f" },
+      { icon = "  ", desc = " Arquivos recentes", action = "Telescope oldfiles", key = "r" },
+      { icon = "  ", desc = " Buscar texto",      action = "Telescope live_grep", key = "g" },
+      { icon = "  ", desc = " Última sessão",     action = "SessionManager load_last_session", key = "l" },
+      { icon = "  ", desc = " Configurações",     action = "edit $MYVIMRC", key = "c" },
+      { icon = "  ", desc = " Sair",              action = "qa", key = "q" },
+    },
+    footer = {
+      "",
+      "💡 Cainux — sua Neovim distro personalizada",
+      "🔗 github.com/caio",
+      "",
+    },
+  },
+}
