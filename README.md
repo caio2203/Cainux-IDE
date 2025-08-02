@@ -30,7 +30,6 @@ Cainux é uma distribuição personalizada do Neovim projetada para oferecer uma
 - **🚪 Sair** - Saída segura do editor
 
 ## 🚀 Instalação
-## 🚀 Instalação
 
 ### ⚡ Instalação Rápida (Recomendada)
 
