@@ -30,42 +30,165 @@ Cainux é uma distribuição personalizada do Neovim projetada para oferecer uma
 - **🚪 Sair** - Saída segura do editor
 
 ## 🚀 Instalação
+## 🚀 Instalação
 
-### Pré-requisitos
+### ⚡ Instalação Rápida (Recomendada)
 
-Certifique-se de ter instalado:
-
-- **Neovim** (versão 0.8+)
-- **Git**
-- **Node.js** (para alguns plugins)
-- **Ripgrep** (para busca de texto)
-- **fd** ou **find** (para busca de arquivos)
-
-### 📥 Instalação Automática
-
+#### Linux/macOS
 ```bash
-# Clone o repositório
-git clone https://github.com/caio2203/Cainux-IDE.git ~/.config/nvim
+curl -fsSL https://raw.githubusercontent.com/caio2203/Cainux-IDE/main/install.sh | bash
+```
 
-# Entre no diretório
-cd ~/.config/nvim
-
-# Execute o script de instalação (se disponível)
-./install.sh
+#### Windows PowerShell
+```powershell
+iwr -useb https://raw.githubusercontent.com/caio2203/Cainux-IDE/main/install.ps1 | iex
 ```
 
 ### 📥 Instalação Manual
 
-```bash
-# Backup da configuração atual (se existir)
-mv ~/.config/nvim ~/.config/nvim.backup
+#### Pré-requisitos
+- **Git** - Para clonar o repositório
+- **Neovim 0.8+** - Editor base
+- **Node.js** (opcional) - Para alguns plugins
+- **Ripgrep** (opcional) - Para busca avançada de texto
+- **fd** (opcional) - Para busca rápida de arquivos
 
-# Clone o Cainux IDE
+#### Passo a Passo
+
+**Linux/macOS:**
+```bash
+# 1. Backup da configuração atual (se existir)
+[ -d ~/.config/nvim ] && mv ~/.config/nvim ~/.config/nvim.backup.$(date +%Y%m%d_%H%M%S)
+
+# 2. Clone do repositório
 git clone https://github.com/caio2203/Cainux-IDE.git ~/.config/nvim
 
-# Inicie o Neovim
+# 3. Iniciar Neovim
 nvim
 ```
+
+**Windows:**
+```powershell
+# 1. Backup da configuração atual (se existir)
+if (Test-Path "$env:LOCALAPPDATA\nvim") { 
+    Move-Item "$env:LOCALAPPDATA\nvim" "$env:LOCALAPPDATA\nvim.backup.$(Get-Date -Format 'yyyyMMdd_HHmmss')" 
+}
+
+# 2. Clone do repositório
+git clone https://github.com/caio2203/Cainux-IDE.git "$env:LOCALAPPDATA\nvim"
+
+# 3. Iniciar Neovim
+nvim
+```
+
+### 🛠️ Instalação com Script Local
+
+```bash
+# Download do script
+wget https://raw.githubusercontent.com/caio2203/Cainux-IDE/main/install.sh
+
+# Dar permissão de execução
+chmod +x install.sh
+
+# Executar
+./install.sh
+```
+
+### 📦 Instalação de Dependências Opcionais
+
+#### Ubuntu/Debian
+```bash
+sudo apt update
+sudo apt install ripgrep fd-find nodejs npm
+```
+
+#### Fedora/RHEL
+```bash
+sudo dnf install ripgrep fd-find nodejs npm
+```
+
+#### Arch Linux
+```bash
+sudo pacman -S ripgrep fd nodejs npm
+```
+
+#### macOS
+```bash
+brew install ripgrep fd node
+```
+
+#### Windows
+```powershell
+# Com Chocolatey
+choco install ripgrep fd nodejs
+
+# Com winget
+winget install BurntSushi.ripgrep.MSVC
+winget install sharkdp.fd
+winget install OpenJS.NodeJS
+```
+
+### ✅ Verificação da Instalação
+
+Após a instalação, verifique se tudo está funcionando:
+
+```bash
+# Verificar Neovim
+nvim --version
+
+# Verificar plugins (dentro do Neovim)
+:checkhealth
+```
+
+### 🔧 Primeira Execução
+
+1. **Abra o Neovim**: `nvim`
+2. **Aguarde**: Os plugins serão instalados automaticamente
+3. **Reinicie**: Feche e abra novamente após a instalação
+4. **Aproveite**: Seu Cainux IDE está pronto!
+
+### 🗑️ Desinstalação
+
+**Linux/macOS:**
+```bash
+# Remover Cainux IDE
+rm -rf ~/.config/nvim
+
+# Restaurar backup (se existir)
+mv ~/.config/nvim.backup.TIMESTAMP ~/.config/nvim
+```
+
+**Windows:**
+```powershell
+# Remover Cainux IDE
+Remove-Item -Recurse -Force "$env:LOCALAPPDATA\nvim"
+
+# Restaurar backup (se existir)
+Move-Item "$env:LOCALAPPDATA\nvim.backup.TIMESTAMP" "$env:LOCALAPPDATA\nvim"
+```
+
+### 🆘 Resolução de Problemas
+
+#### Plugin não carregando
+```bash
+# Dentro do Neovim
+:PackerSync
+:PackerCompile
+```
+
+#### Erro de permissão (Linux/macOS)
+```bash
+chmod -R 755 ~/.config/nvim
+```
+
+#### Neovim não encontrado
+- Verifique se está no PATH: `echo $PATH`
+- Reinstale o Neovim seguindo as instruções oficiais
+
+#### Git não encontrado
+- Linux: `sudo apt install git`
+- Windows: Baixe em [git-scm.com](https://git-scm.com)
+- macOS: `brew install git`
 
 ## 🎮 Como Usar
 
